@@ -3,12 +3,13 @@
 
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <unistd.h>
 
 #include <netinet/in.h>
 
 
 int main() {
-    // SOCK_STREAM means TCP.
+    // SOCK_STREAM means TCP
     int sock = socket(AF_INET, SOCK_STREAM, 0);
 
     // Specify where we want to connect

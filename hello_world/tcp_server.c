@@ -3,6 +3,7 @@
 
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <unistd.h>
 
 #include <netinet/in.h>
 
@@ -22,10 +23,9 @@ int main() {
     server_address.sin_addr.s_addr = INADDR_ANY;
 
     if (bind(sock, (struct sockaddr *) &server_address, sizeof(server_address)) == 0) {
-        // Seems to block on listen before printing to console. Hmm.
-        printf("Socket running on port %d.", port);
+        printf("Socket running on port %d.\n", port);
     } else {
-        printf("Error binding to port %d.", port);
+        printf("Error binding to port %d.\n", port);
     }
 
     for (;;){
